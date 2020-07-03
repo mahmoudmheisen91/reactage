@@ -1,20 +1,52 @@
-@mixin paint($colorVal) {
-  &::before {
-    background-color: $colorVal;
-  }
+$colors: (
+  red: rgba(252, 129, 139, 0.5),
+  purple: rgba(104, 124, 252, 0.5),
+  yellow: rgba(252, 211, 78, 0.5),
+  green: rgba(51, 212, 89, 0.5),
+  blue: rgba(96, 156, 252, 0.5),
+  greenyellow: rgba(210, 245, 107, 0.7),
+);
 
-  .simple-card__text {
-    border-color: $colorVal;
-  }
+@mixin generate-card-classes() {
+  @each $colorName, $colorValue in $colors {
+    &__rect__color-#{$colorName} {
+      &::before {
+        content: "";
 
-  &:hover::after {
-    background-color: lighten($color: $colorVal, $amount: 5);
+        position: absolute;
+        top: 50%;
+        left: 15%;
+        transform: translateY(-50%);
+
+        width: 40%;
+        height: 40%;
+        border-radius: 10px;
+        background-color: $colorValue;
+
+        transition: width 0.3s ease-in;
+      }
+
+      &:hover::before {
+        width: 70%;
+        transition: width 0.3s ease-in;
+      }
+    }
+
+    &__line__color-#{$colorName} {
+      .simple-card__text {
+        border-bottom: 4px solid $colorValue;
+      }
+
+      &:hover {
+        background-color: lighten($colorValue, 15);
+        transition: background 0.2s ease-in;
+      }
+    }
   }
 }
 
 .simple-card {
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,91 +55,10 @@
   border-radius: 20px;
   box-shadow: 2px 2px 8px rgba(201, 197, 197, 0.21);
 
-  &__rect {
-    &::before {
-      content: "";
-
-      position: absolute;
-      top: 50%;
-      left: 15%;
-      transform: translateY(-50%);
-
-      width: 40%;
-      height: 40%;
-      border-radius: 10px;
-
-      transition: width 0.3s ease-in;
-    }
-
-    &:hover::before {
-      width: 70%;
-      transition: width 0.3s ease-in;
-    }
-  }
-
-  &__line {
-    &::after {
-      content: "";
-
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      border-radius: 20px;
-
-      transition: background 0.2s ease-in;
-    }
-
-    &:hover::after {
-      transition: background 0.2s ease-in;
-    }
-  }
-
-  &__color-red {
-    @include paint(rgba(252, 129, 139, 0.45));
-  }
-
-  &__color-purple {
-    @include paint(rgba(104, 123, 252, 0.34));
-  }
-
-  &__color-yellow {
-    @include paint(rgba(252, 212, 78, 0.51));
-  }
-
-  &__color-green {
-    @include paint(rgba(51, 212, 89, 0.45));
-  }
-
-  &__color-blue {
-    @include paint(rgba(96, 156, 252, 0.32));
-  }
-
-  &__color-green-yellow {
-    @include paint(rgba(202, 233, 111, 0.48));
-  }
-
-  &__link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-
-    z-index: 1;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-  }
+  @include generate-card-classes();
 
   &__text {
-    border-bottom: 4px solid;
+    z-index: 1;
   }
 
   &__icon {

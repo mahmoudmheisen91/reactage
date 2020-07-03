@@ -17,6 +17,7 @@ const BasicContainer = () => {
           to="/simple-card"
           text="Train App"
           type="rect"
+          disabled
         />
         <SimpleCard
           className="basic-container__card"
@@ -53,7 +54,7 @@ const BasicContainer = () => {
         <SimpleCard
           className="basic-container__card"
           withIcon
-          color="green-yellow"
+          color="greenyellow"
           to="/simple-card"
           text="Create Node"
           type="rect"
@@ -98,7 +99,7 @@ const BasicContainer = () => {
         <SimpleCard
           className="basic-container__card"
           withIcon
-          color="green-yellow"
+          color="greenyellow"
           to="/simple-card"
           text="Create Node"
         />
