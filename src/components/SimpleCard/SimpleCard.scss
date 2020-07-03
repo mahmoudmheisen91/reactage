@@ -7,7 +7,7 @@ $colors: (
   greenyellow: rgba(210, 245, 107, 0.7),
 );
 
-@mixin generate-card-classes() {
+@mixin generate-color-classes() {
   @each $colorName, $colorValue in $colors {
     &__rect__color-#{$colorName} {
       &::before {
@@ -55,13 +55,14 @@ $colors: (
   border-radius: 20px;
   box-shadow: 2px 2px 8px rgba(201, 197, 197, 0.21);
 
-  @include generate-card-classes();
+  @include generate-color-classes();
 
   &__text {
     z-index: 1;
   }
 
   &__icon {
+    z-index: 1;
     color: gray;
     margin-left: 0.9rem;
   }
