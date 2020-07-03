@@ -18,32 +18,29 @@ const SimpleCard = ({
   onClick,
   type = "line",
 }) => {
-  const colors = ["red", "purple", "yellow", "green", "blue", "green-yellow"];
+  // const colors = ["red", "purple", "yellow", "green", "blue", "green-yellow"];
 
   return (
     <div
       className={classnames(
         className,
         "simple-card",
-        `simple-card--color-${colors.indexOf(color) + 1}`,
         {
           disabled: disabled,
           "simple-card__rect": type === "rect",
           "simple-card__line": type === "line",
-        }
+        },
+        `simple-card__color-${color}`
       )}
     >
       <Link className="simple-card__link" to={to || ""} onClick={onClick}>
-        {/* Text */}
         <Text
           className={classnames({
-            "simple-card__title": type === "line",
+            "simple-card__text": type === "line",
           })}
         >
           {text}
         </Text>
-
-        {/* Arrow */}
         {withIcon && <RightOutlined className="simple-card__icon" />}
       </Link>
     </div>

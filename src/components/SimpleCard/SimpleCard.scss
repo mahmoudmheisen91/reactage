@@ -1,3 +1,17 @@
+@mixin paint($colorVal) {
+  &::before {
+    background-color: $colorVal;
+  }
+
+  .simple-card__text {
+    border-color: $colorVal;
+  }
+
+  &:hover::after {
+    background-color: lighten($color: $colorVal, $amount: 5);
+  }
+}
+
 .simple-card {
   position: relative;
 
@@ -29,92 +43,56 @@
       width: 70%;
       transition: width 0.3s ease-in;
     }
-
-    &--color-1::before {
-      background: rgba(252, 129, 139, 0.45);
-    }
-
-    &--color-2::before {
-      background: rgba(104, 123, 252, 0.34);
-    }
-
-    &--color-3::before {
-      background: rgba(252, 212, 78, 0.51);
-    }
-    &--color-4::before {
-      background: rgba(51, 212, 89, 0.45);
-    }
-    &--color-5::before {
-      background: rgba(96, 156, 252, 0.32);
-    }
-    &--color-6::before {
-      background: rgba(202, 233, 111, 0.48);
-    }
   }
 
   &__line {
-    &--color-1 {
-      &:hover {
-        background: rgba(252, 129, 139, 0.45);
-      }
+    &::after {
+      content: "";
 
-      .simple-card__title {
-        border-bottom: 4px solid rgba(252, 129, 139, 0.45);
-      }
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 20px;
+
+      transition: background 0.2s ease-in;
     }
 
-    &--color-2 {
-      &:hover {
-        background: rgba(104, 123, 252, 0.34);
-      }
-
-      .simple-card__title {
-        border-bottom: 4px solid rgba(104, 123, 252, 0.34);
-      }
+    &:hover::after {
+      transition: background 0.2s ease-in;
     }
+  }
 
-    &--color-3 {
-      &:hover {
-        background: rgba(253, 233, 165, 0.46);
-      }
+  &__color-red {
+    @include paint(rgba(252, 129, 139, 0.45));
+  }
 
-      .simple-card__title {
-        border-bottom: 4px solid rgba(253, 233, 165, 0.46);
-      }
-    }
-    &--color-4 {
-      &:hover {
-        background: rgba(82, 227, 201, 0.48);
-      }
+  &__color-purple {
+    @include paint(rgba(104, 123, 252, 0.34));
+  }
 
-      .simple-card__title {
-        border-bottom: 4px solid rgba(82, 227, 201, 0.48);
-      }
-    }
-    &--color-5 {
-      &:hover {
-        background: rgba(96, 156, 252, 0.32);
-      }
+  &__color-yellow {
+    @include paint(rgba(252, 212, 78, 0.51));
+  }
 
-      .simple-card__title {
-        border-bottom: 4px solid rgba(96, 156, 252, 0.32);
-      }
-    }
-    &--color-6 {
-      &:hover {
-        background: rgba(202, 233, 111, 0.48);
-      }
+  &__color-green {
+    @include paint(rgba(51, 212, 89, 0.45));
+  }
 
-      .simple-card__title {
-        border-bottom: 4px solid rgba(202, 233, 111, 0.48);
-      }
-    }
+  &__color-blue {
+    @include paint(rgba(96, 156, 252, 0.32));
+  }
+
+  &__color-green-yellow {
+    @include paint(rgba(202, 233, 111, 0.48));
   }
 
   &__link {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 
     z-index: 1;
 
@@ -126,6 +104,10 @@
       bottom: 0;
       left: 0;
     }
+  }
+
+  &__text {
+    border-bottom: 4px solid;
   }
 
   &__icon {

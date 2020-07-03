@@ -16,7 +16,7 @@ const BasicContainer = () => {
           color="purple"
           to="/simple-card"
           text="Train App"
-          type="line"
+          type="rect"
         />
         <SimpleCard
           className="basic-container__card"
@@ -24,7 +24,7 @@ const BasicContainer = () => {
           color="red"
           to="/simple-card"
           text="Create App"
-          type="line"
+          type="rect"
         />
         <SimpleCard
           className="basic-container__card"
@@ -49,6 +49,58 @@ const BasicContainer = () => {
           to="/simple-card"
           text="Find Node"
           type="rect"
+        />
+        <SimpleCard
+          className="basic-container__card"
+          withIcon
+          color="green-yellow"
+          to="/simple-card"
+          text="Create Node"
+          type="rect"
+        />
+      </div>
+      <div className="basic-container__body">
+        <SimpleCard
+          className="basic-container__card"
+          withIcon
+          color="purple"
+          to="/simple-card"
+          text="Train App"
+        />
+        <SimpleCard
+          className="basic-container__card"
+          withIcon
+          color="red"
+          to="/simple-card"
+          text="Create App"
+        />
+        <SimpleCard
+          className="basic-container__card"
+          withIcon
+          color="yellow"
+          to="/simple-card"
+          text="Find App"
+        />
+        <SimpleCard
+          className="basic-container__card"
+          withIcon
+          color="green"
+          to="/simple-card"
+          text="Create Node"
+        />
+        <SimpleCard
+          className="basic-container__card"
+          withIcon
+          color="blue"
+          to="/simple-card"
+          text="Find Node"
+        />
+        <SimpleCard
+          className="basic-container__card"
+          withIcon
+          color="green-yellow"
+          to="/simple-card"
+          text="Create Node"
         />
       </div>
     </div>
