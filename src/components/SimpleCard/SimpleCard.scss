@@ -1,0 +1,135 @@
+.simple-card {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: white;
+  border-radius: 20px;
+  box-shadow: 2px 2px 8px rgba(201, 197, 197, 0.21);
+
+  &__rect {
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 50%;
+      left: 15%;
+      transform: translateY(-50%);
+
+      width: 40%;
+      height: 40%;
+      border-radius: 10px;
+
+      transition: width 0.3s ease-in;
+    }
+
+    &:hover::before {
+      width: 70%;
+      transition: width 0.3s ease-in;
+    }
+
+    &--color-1::before {
+      background: rgba(252, 129, 139, 0.45);
+    }
+
+    &--color-2::before {
+      background: rgba(104, 123, 252, 0.34);
+    }
+
+    &--color-3::before {
+      background: rgba(252, 212, 78, 0.51);
+    }
+    &--color-4::before {
+      background: rgba(51, 212, 89, 0.45);
+    }
+    &--color-5::before {
+      background: rgba(96, 156, 252, 0.32);
+    }
+    &--color-6::before {
+      background: rgba(202, 233, 111, 0.48);
+    }
+  }
+
+  &__line {
+    &--color-1 {
+      &:hover {
+        background: rgba(252, 129, 139, 0.45);
+      }
+
+      .simple-card__title {
+        border-bottom: 4px solid rgba(252, 129, 139, 0.45);
+      }
+    }
+
+    &--color-2 {
+      &:hover {
+        background: rgba(104, 123, 252, 0.34);
+      }
+
+      .simple-card__title {
+        border-bottom: 4px solid rgba(104, 123, 252, 0.34);
+      }
+    }
+
+    &--color-3 {
+      &:hover {
+        background: rgba(253, 233, 165, 0.46);
+      }
+
+      .simple-card__title {
+        border-bottom: 4px solid rgba(253, 233, 165, 0.46);
+      }
+    }
+    &--color-4 {
+      &:hover {
+        background: rgba(82, 227, 201, 0.48);
+      }
+
+      .simple-card__title {
+        border-bottom: 4px solid rgba(82, 227, 201, 0.48);
+      }
+    }
+    &--color-5 {
+      &:hover {
+        background: rgba(96, 156, 252, 0.32);
+      }
+
+      .simple-card__title {
+        border-bottom: 4px solid rgba(96, 156, 252, 0.32);
+      }
+    }
+    &--color-6 {
+      &:hover {
+        background: rgba(202, 233, 111, 0.48);
+      }
+
+      .simple-card__title {
+        border-bottom: 4px solid rgba(202, 233, 111, 0.48);
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &__icon {
+    color: gray;
+    margin-left: 0.9rem;
+  }
+}

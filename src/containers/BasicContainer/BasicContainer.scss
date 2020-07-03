@@ -1,0 +1,23 @@
+.basic-container {
+  background-color: rgb(184, 184, 184);
+  padding: 1rem;
+
+  &__header {
+    font-size: 24px;
+  }
+
+  &__body {
+    display: flex;
+    height: 11.5rem;
+
+    margin-top: 2.6rem;
+  }
+
+  &__card {
+    flex: 1;
+    margin-right: 3rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
