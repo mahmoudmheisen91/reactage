@@ -1,0 +1,15 @@
+.empty {
+  background-color: rgb(219, 219, 219);
+  padding: 1rem;
+
+  &__header {
+    font-size: 24px;
+  }
+
+  &__body {
+    display: flex;
+    height: 10rem;
+
+    margin-top: 2.6rem;
+  }
+}
