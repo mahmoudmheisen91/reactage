@@ -2,37 +2,37 @@ import React, { useState } from "react";
 
 import "./MySelect.scss";
 
-const MyOption = ({ value, onSelect, selected }) => {
+const MyOption = ({ value, onSelect, selected, id }) => {
   const selectedStyle = {
     backgroundColor: "red",
     color: "#fff",
     cursor: "pointer",
   };
-  const unSelectedStyle = { cursor: "pointer" };
+  const unSelectedStyle = { cursor: "pointer", };
 
-  let style = selected === value ? selectedStyle : unSelectedStyle;
+  let style = selected === id ? selectedStyle : unSelectedStyle;
 
   return (
-    <div style={style} onClick={onSelect}>
+    <div className="mystyle2" style={style} onClick={()=>onSelect(id)}>
       {value}
     </div>
   );
 };
 
 const MySelect = () => {
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState("0");
 
-  const onSelect = (evt) => {
-    if (evt.target.textContent !== selected)
-      setSelected(evt.target.textContent);
-    else setSelected("");
+  const onSelect = (id) => {
+    if (id !== selected)
+      setSelected(id);
+    // else setSelected("");
   };
 
   return (
     <div className="mystyle">
-      <MyOption selected={selected} onSelect={onSelect} value="test1" />
-      <MyOption selected={selected} onSelect={onSelect} value="test2" />
-      <MyOption selected={selected} onSelect={onSelect} value="test3" />
+      <MyOption selected={selected} onSelect={onSelect} value="test1" id="0"/>
+      <MyOption selected={selected} onSelect={onSelect} value="test2" id="1"/>
+      <MyOption selected={selected} onSelect={onSelect} value="test3" id="2"/>
     </div>
   );
 };
